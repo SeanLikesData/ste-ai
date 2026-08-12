@@ -1,0 +1,39 @@
+{
+  "name": "ste-ai",
+  "version": "0.1.0",
+  "description": "Structured Technical English for AI: a clear, low-cognitive-load writing specification.",
+  "license": "MIT",
+  "author": "SeanLikesData",
+  "homepage": "https://github.com/SeanLikesData/ste-ai#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeanLikesData/ste-ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SeanLikesData/ste-ai/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "agent-skill",
+    "writing",
+    "structured-technical-english",
+    "simplified-technical-english",
+    "ai-writing"
+  ],
+  "files": [
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "check": "npm pack --dry-run"
+  }
+}
