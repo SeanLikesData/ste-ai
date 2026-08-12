@@ -1,97 +1,196 @@
-# Structured Technical English for AI (STE-AI)
+<div align="center">
 
-STE-AI is a writing specification for clear, consistent, low-cognitive-load AI communication.
+# Structured Technical English for AI
 
-It standardizes how AI explains ideas, answers questions, and writes durable instruction files.
+**Clear, consistent, low-cognitive-load writing for AI conversations and documents.**
 
-## Why STE-AI exists
+[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-111827)](https://agentskills.io)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![No executable code](https://img.shields.io/badge/executable%20code-none-16a34a)](skills/ste-ai/SKILL.md)
 
-AI produces conversational replies and documents that people and other agents must understand.
+</div>
 
-Without shared writing rules, that output can become inconsistent, indirect, repetitive, or difficult to maintain.
+STE-AI gives AI agents one reusable writing standard. It keeps answers direct, preserves decision-critical detail, and makes long-lived instruction files easier to maintain.
 
-STE-AI provides one reusable style for:
+## See the difference
 
-- Conversations between people and AI agents.
-- Summaries, reports, plans, and explanations.
-- Agent instructions such as `SKILL.md` and `AGENTS.md` files.
-- Documentation that multiple people or agents maintain over time.
-- Prose that must support quick and accurate action.
+<table>
+<tr>
+<th width="50%">Typical AI writing</th>
+<th width="50%">With STE-AI</th>
+</tr>
+<tr>
+<td valign="top">
 
-## Inspiration from ASD-STE100
+> Great question. There are several factors that could potentially influence this decision. It is worth noting that the current migration plan appears to have some gaps. You may want to consider creating a rollback procedure before moving forward. This would help ensure a more robust and seamless migration process.
 
-ASD-STE100 Simplified Technical English is a controlled natural language and international standard for technical documentation.
+</td>
+<td valign="top">
 
-The European aerospace industry began developing it in the late 1970s. Its original goal was clearer English-language maintenance documentation.
+> Delay the migration until the rollback procedure is tested.
+>
+> The current plan has no verified recovery path. A failed migration could extend the outage.
+>
+> Next: test the rollback procedure in staging.
 
-Its use began in commercial aviation and later expanded into defense projects. The standard combines writing rules with a controlled dictionary.
+</td>
+</tr>
+</table>
 
-These controls reduce ambiguity and make technical instructions easier to understand across languages and organizations.
+STE-AI applies the same rules to reports, plans, summaries, and agent instructions such as `SKILL.md` and `AGENTS.md`.
 
-STE-AI applies the same general idea to AI communication: shared constraints can produce clearer and more consistent writing.
+## Install
 
-STE-AI is an independent specification. It is not ASD-STE100, an implementation of ASD-STE100, or a conformance checker.
+### GitHub CLI
 
-STE-AI does not reproduce the ASD-STE100 controlled dictionary. It is not affiliated with ASD or its STE Maintenance Group.
-
-## What STE-AI changes
-
-- Leads with the answer, result, recommendation, or next action.
-- Uses short sentences, active voice, and common words.
-- Limits justification while preserving decision-changing risks.
-- Separates verified facts from inference.
-- Removes filler, decorative language, and unnecessary recaps.
-
-## Why structured AI writing matters
-
-AI-authored instruction files can remain active for months or years. Their wording affects every agent that reads them.
-
-Stable terms make those instructions easier to review, compare, revise, and transfer between agents.
-
-Explicit scope and sentence rules also reduce interpretation differences. This consistency supports long-term maintenance of files such as `SKILL.md`.
-
-## Install in Pi
-
-After the npm release, install the package globally:
+The GitHub CLI can install STE-AI for many Agent Skills clients.
 
 ```bash
-pi install npm:ste-ai
+gh skill install SeanLikesData/ste-ai ste-ai --agent claude-code --scope user
 ```
 
-Install the current GitHub version before the npm release:
+Replace `claude-code` with your agent:
+
+| Agent | Value |
+| --- | --- |
+| Claude Code | `claude-code` |
+| Codex | `codex` |
+| Cursor | `cursor` |
+| Gemini CLI | `gemini-cli` |
+| GitHub Copilot | `github-copilot` |
+| Pi | `pi` |
+
+Use `--scope project` instead of `--scope user` to install the skill only in the current project.
+
+Verify the source before installation:
+
+```bash
+gh skill preview SeanLikesData/ste-ai ste-ai
+```
+
+### Cross-agent installer
+
+The open [`skills` CLI](https://github.com/vercel-labs/skills) supports many additional agents.
+
+```bash
+npx skills@latest add SeanLikesData/ste-ai --skill ste-ai
+```
+
+The installer detects available agents and asks where to install the skill. Node.js 22.20 or newer is required by the current installer.
+
+### Pi package
+
+Pi can install the repository as a native package:
 
 ```bash
 pi install https://github.com/SeanLikesData/ste-ai
 ```
 
-Start a new Pi session after installation.
-
-Pi can load the skill when a writing task matches its description. Invoke it directly when you need certainty:
+Start a new Pi session, then invoke the skill directly:
 
 ```text
 /skill:ste-ai
 ```
 
-## Use with other agents
+The npm package command will become available after the first npm release:
 
-The skill follows the Agent Skills directory format. Compatible agents can load `skills/ste-ai/SKILL.md` directly.
+```bash
+pi install npm:ste-ai
+```
 
-Copy the `skills/ste-ai` directory into a skill location supported by your agent.
+### Manual installation
 
-## Scope
+Copy [`skills/ste-ai`](skills/ste-ai) into a skill directory supported by your agent.
 
-The specification applies to replies, documents, summaries, reports, plans, explanations, and AI instruction files.
+Common user-level locations include:
 
-It does not override requested styles. It also exempts code, commit messages, transcripts, and verbatim quotes.
+| Agent | Directory |
+| --- | --- |
+| Claude Code | `~/.claude/skills/ste-ai/` |
+| Codex | `~/.codex/skills/ste-ai/` |
+| Cursor | `~/.cursor/skills/ste-ai/` |
+| Gemini CLI | `~/.gemini/skills/ste-ai/` |
+| GitHub Copilot | `~/.copilot/skills/ste-ai/` |
+| Pi | `~/.pi/agent/skills/ste-ai/` |
 
-## Design
+Restart the agent after a manual installation.
 
-The specification uses four layers:
+### Update or remove
 
-1. Turn structure controls answer order and list size.
-2. Calibration controls detail, uncertainty, and recommendations.
-3. Sentence rules control length, voice, tense, and ambiguity.
-4. Vocabulary rules prefer common, stable, and direct terms.
+Update an installation made with the GitHub CLI:
+
+```bash
+gh skill update ste-ai
+```
+
+Update or remove an installation made with the cross-agent installer:
+
+```bash
+npx skills@latest update ste-ai
+npx skills@latest remove ste-ai
+```
+
+Update or remove the Pi package:
+
+```bash
+pi update https://github.com/SeanLikesData/ste-ai
+pi remove https://github.com/SeanLikesData/ste-ai
+```
+
+## Use
+
+Agents can load STE-AI automatically when a writing task matches its description. Most clients also support direct selection.
+
+| Agent | Direct use |
+| --- | --- |
+| Claude Code | `/ste-ai` |
+| Codex | `$ste-ai` |
+| Cursor | `/ste-ai` |
+| Pi | `/skill:ste-ai` |
+
+You can also ask for it by name:
+
+```text
+Use STE-AI to rewrite this report without removing evidence or caveats.
+```
+
+## What it changes
+
+- Leads with the answer, result, recommendation, or next action.
+- Uses short sentences, active voice, and common words.
+- Preserves risks, caveats, evidence, and decision-critical alternatives.
+- Separates verified facts from inference.
+- Removes filler, decorative language, and unnecessary recaps.
+
+The complete specification is in [`SKILL.md`](skills/ste-ai/SKILL.md).
+
+## Why structured AI writing matters
+
+AI-authored instructions can remain active for months or years. Their wording affects every person and agent that reads them.
+
+Stable terms make those instructions easier to review, compare, revise, and transfer between agents. Explicit scope and sentence rules reduce interpretation differences during maintenance.
+
+STE-AI contains one Markdown skill file. It has no scripts, hooks, network access, or runtime dependencies.
+
+## Inspiration from ASD-STE100
+
+ASD-STE100 Simplified Technical English is a controlled natural language and international standard for technical documentation.
+
+The European aerospace industry began developing it in the late 1970s. The original goal was clearer English-language maintenance documentation. Its use expanded from commercial aviation into defense projects and other technical fields.
+
+ASD-STE100 combines writing rules with a controlled dictionary. These controls reduce ambiguity across languages and organizations.
+
+STE-AI applies the general principle of shared writing constraints to AI communication. It does not reproduce the ASD-STE100 controlled dictionary.
+
+STE-AI is independent. It is not ASD-STE100, an ASD-STE100 implementation, or a conformance checker. It is not affiliated with ASD or its STE Maintenance Group.
+
+Official references:
+
+- [ASD-STE100 overview](https://www.asd-ste100.org/about_STE.html)
+- [ASD Simplified Technical English](https://www.asd-europe.org/standards-specifications/simplified-technical-english/)
+- [STE fundamentals](https://www.asd-europe.org/standards-specifications/simplified-technical-english/what-are-the-basics-of-simplified-technical-english/)
+
+Simplified Technical English and ASD-STE100 are trademarks of ASD, Brussels, Belgium.
 
 ## Package contents
 
@@ -101,9 +200,14 @@ skills/
     └── SKILL.md
 ```
 
-The package contains no executable extension and no runtime dependency.
+## Development
 
-## Develop
+Validate the skill with the Agent Skills reference tool:
+
+```bash
+uvx --from 'git+https://github.com/agentskills/agentskills#subdirectory=skills-ref' \
+  skills-ref validate ./skills/ste-ai
+```
 
 Inspect the npm archive without publishing:
 
@@ -111,20 +215,6 @@ Inspect the npm archive without publishing:
 npm run check
 ```
 
-Load the local package in a temporary Pi session:
-
-```bash
-pi -e .
-```
-
-## Sources and attribution
-
-- [ASD-STE100 official overview](https://www.asd-ste100.org/about_STE.html)
-- [ASD overview of Simplified Technical English](https://www.asd-europe.org/standards-specifications/simplified-technical-english/)
-- [ASD explanation of STE fundamentals](https://www.asd-europe.org/standards-specifications/simplified-technical-english/what-are-the-basics-of-simplified-technical-english/)
-
-Simplified Technical English and ASD-STE100 are trademarks of ASD, Brussels, Belgium.
-
 ## License
 
-MIT
+[MIT](LICENSE)
