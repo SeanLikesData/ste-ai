@@ -19,8 +19,6 @@ STE-AI stops AI from burying the answer. It gives agents specific rules for dire
 
 ## See the difference
 
-**Prompt:** “Can we deploy the checkout update today? The test run passed 214 tests and failed the payment-retry test. Staging checkout works. We have not tested rollback.”
-
 <table>
 <tr>
 <th width="50%">Typical AI writing</th>
@@ -29,7 +27,9 @@ STE-AI stops AI from burying the answer. It gives agents specific rules for dire
 <tr>
 <td valign="top">
 
-> Based on the information provided, the checkout update appears to be in relatively good shape overall, with the vast majority of tests passing and staging functionality looking positive. However, there are a couple of considerations worth keeping in mind before proceeding. The payment-retry test failure may warrant further investigation, and it could also be beneficial to validate the rollback process. Taking these precautions could help ensure a smoother and more reliable deployment.
+> Great question. At its core, this is not just a deployment decision. It is a balance between speed, confidence, and operational readiness. The good news is that 214 tests passed and staging checkout works, which suggests the update is in relatively strong shape.
+>
+> That said, the failed payment-retry test is worth keeping in mind. It may also be helpful to validate the rollback process before moving forward. Ultimately, taking a thoughtful, measured approach here will help ensure a robust and seamless deployment while minimizing unnecessary risk.
 
 </td>
 <td valign="top">
