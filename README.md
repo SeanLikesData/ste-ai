@@ -43,23 +43,6 @@ STE-AI gives AI agents one reusable writing standard. It keeps answers direct, p
 
 STE-AI applies the same rules to reports, plans, summaries, and agent instructions such as `SKILL.md` and `AGENTS.md`.
 
-## Use
-
-Agents can load STE-AI automatically when a writing task matches its description. Most clients also support direct selection.
-
-| Agent | Direct use |
-| --- | --- |
-| Claude Code | `/ste-ai` |
-| Codex | `$ste-ai` |
-| Cursor | `/ste-ai` |
-| Pi | `/skill:ste-ai` |
-
-You can also ask for it by name:
-
-```text
-Use STE-AI to rewrite this report without removing evidence or caveats.
-```
-
 ## What it changes
 
 - Leads with the answer, result, recommendation, or next action.
@@ -97,29 +80,6 @@ Official references:
 - [STE fundamentals](https://www.asd-europe.org/standards-specifications/simplified-technical-english/what-are-the-basics-of-simplified-technical-english/)
 
 Simplified Technical English and ASD-STE100 are trademarks of ASD, Brussels, Belgium.
-
-## Package contents
-
-```text
-skills/
-└── ste-ai/
-    └── SKILL.md
-```
-
-## Development
-
-Validate the skill with the Agent Skills reference tool:
-
-```bash
-uvx --from 'git+https://github.com/agentskills/agentskills#subdirectory=skills-ref' \
-  skills-ref validate ./skills/ste-ai
-```
-
-Inspect the npm archive without publishing:
-
-```bash
-npm run check
-```
 
 ## Inspiration
 
