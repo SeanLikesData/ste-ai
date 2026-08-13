@@ -12,6 +12,10 @@
 
 STE-AI gives AI agents one reusable writing standard. It keeps answers direct, preserves decision-critical detail, and makes long-lived instruction files easier to maintain.
 
+## Install
+
+[Installation instructions for Pi, Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, and other Agent Skills clients](INSTALL.md)
+
 ## See the difference
 
 <table>
@@ -38,104 +42,6 @@ STE-AI gives AI agents one reusable writing standard. It keeps answers direct, p
 </table>
 
 STE-AI applies the same rules to reports, plans, summaries, and agent instructions such as `SKILL.md` and `AGENTS.md`.
-
-## Install
-
-### GitHub CLI
-
-The GitHub CLI can install STE-AI for many Agent Skills clients.
-
-```bash
-gh skill install SeanLikesData/ste-ai ste-ai --agent claude-code --scope user
-```
-
-Replace `claude-code` with your agent:
-
-| Agent | Value |
-| --- | --- |
-| Claude Code | `claude-code` |
-| Codex | `codex` |
-| Cursor | `cursor` |
-| Gemini CLI | `gemini-cli` |
-| GitHub Copilot | `github-copilot` |
-| Pi | `pi` |
-
-Use `--scope project` instead of `--scope user` to install the skill only in the current project.
-
-Verify the source before installation:
-
-```bash
-gh skill preview SeanLikesData/ste-ai ste-ai
-```
-
-### Cross-agent installer
-
-The open [`skills` CLI](https://github.com/vercel-labs/skills) supports many additional agents.
-
-```bash
-npx skills@latest add SeanLikesData/ste-ai --skill ste-ai
-```
-
-The installer detects available agents and asks where to install the skill. Node.js 22.20 or newer is required by the current installer.
-
-### Pi package
-
-Pi can install the repository as a native package:
-
-```bash
-pi install https://github.com/SeanLikesData/ste-ai
-```
-
-Start a new Pi session, then invoke the skill directly:
-
-```text
-/skill:ste-ai
-```
-
-The npm package command will become available after the first npm release:
-
-```bash
-pi install npm:ste-ai
-```
-
-### Manual installation
-
-Copy [`skills/ste-ai`](skills/ste-ai) into a skill directory supported by your agent.
-
-Common user-level locations include:
-
-| Agent | Directory |
-| --- | --- |
-| Claude Code | `~/.claude/skills/ste-ai/` |
-| Codex | `~/.codex/skills/ste-ai/` |
-| Cursor | `~/.cursor/skills/ste-ai/` |
-| Gemini CLI | `~/.gemini/skills/ste-ai/` |
-| GitHub Copilot | `~/.copilot/skills/ste-ai/` |
-| Pi | `~/.pi/agent/skills/ste-ai/` |
-
-Restart the agent after a manual installation.
-
-### Update or remove
-
-Update an installation made with the GitHub CLI:
-
-```bash
-gh skill update ste-ai
-```
-
-Update or remove an installation made with the cross-agent installer:
-
-```bash
-npx skills@latest update ste-ai
-npx skills@latest remove ste-ai
-```
-
-Update or remove the Pi package:
-
-```bash
-pi update https://github.com/SeanLikesData/ste-ai
-pi remove https://github.com/SeanLikesData/ste-ai
-```
 
 ## Use
 
@@ -214,6 +120,13 @@ Inspect the npm archive without publishing:
 ```bash
 npm run check
 ```
+
+## Inspiration
+
+STE-AI draws from two sources:
+
+- [ASD-STE100 Simplified Technical English](https://www.asd-ste100.org/) showed how shared writing constraints improve technical communication.
+- The [I Have ADHD](https://github.com/ayghri/i-have-adhd) skill demonstrated effective low-cognitive-load rules and cross-agent skill distribution.
 
 ## License
 
