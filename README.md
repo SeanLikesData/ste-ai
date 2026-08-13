@@ -70,7 +70,7 @@ The complete specification is in [`SKILL.md`](skills/ste-ai/SKILL.md).
 
 ## Why this matters
 
-AI instructions can remain active for years. Stable terms and explicit rules make `SKILL.md`, `AGENTS.md`, and other documents easier to review and maintain.
+AI instructions work more consistently across models when they use stable terms and explicit rules. This also makes `SKILL.md`, `AGENTS.md`, and related files easier to maintain.
 
 ## Inspiration
 
