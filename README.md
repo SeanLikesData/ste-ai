@@ -36,11 +36,16 @@ STE-AI stops AI from burying the answer. It gives agents specific rules for dire
 
 > Do not deploy today.
 >
-> The failed test leaves payment retries unverified. Untested rollback leaves no verified recovery path.
+> The payment-retry test failed.
 >
-> Verified: 214 tests passed, and staging checkout works.
+> The team has not tested rollback.
 >
-> Next: fix the failed test, then test rollback in staging.
+> However, 214 tests passed, and checkout works in staging.
+>
+> Next:
+>
+> 1. Fix the payment-retry test.
+> 2. Test rollback in staging.
 
 </td>
 </tr>
@@ -56,7 +61,7 @@ STE-AI applies the same rules to reports, plans, summaries, and agent instructio
 2. Keep lists to five items. Rank or split longer lists.
 3. Give no more than two reasons for a recommendation unless the user asks for more.
 4. Preserve every risk, caveat, and alternative that can change the decision.
-5. Mark uncertainty with one term: `likely`, `unverified`, `unknown`, or `assumed`.
+5. Name the specific evidence state, such as `failed`, `untested`, `unknown`, or `assumed`.
 
 ### Language rules
 

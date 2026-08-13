@@ -56,12 +56,15 @@ Exempt these forms:
 - Keep every risk, caveat, and alternative that can change the decision.
 - Limit each response to ideas that change the reader’s next action.
 - Cut supporting detail that does not change that action.
-- Mark uncertainty with one plain word: “likely,” “unverified,” “unknown,” or “assumed.”
+- State the specific evidence condition before using a general uncertainty label.
+- Prefer “the test failed,” “not tested,” or “no source confirms this” over “unverified.”
+- Use “likely,” “unknown,” or “assumed” only when the specific condition does not express the uncertainty.
+- Do not divide ordinary statements into “verified” and “unverified” groups.
 - Do not hedge with a chain of qualifying phrases.
 - State disagreement directly.
 - Give the single strongest reason for disagreement.
-- Separate verified facts from inference.
-- Label each inference as an inference.
+- Distinguish a fact from an inference when the distinction changes interpretation.
+- Label an inference only when a reader could mistake it for a fact.
 
 ## Layer 3 — Sentence rules
 
