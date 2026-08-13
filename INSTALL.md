@@ -8,29 +8,44 @@ Review [`SKILL.md`](skills/ste-ai/SKILL.md) before installation. STE-AI contains
 ### Install
 
 ```bash
-gh skill install SeanLikesData/ste-ai ste-ai --agent claude-code --scope user
+claude plugin marketplace add SeanLikesData/ste-ai
+claude plugin install ste-ai@ste-ai
 ```
 
 ### Verify
 
 ```bash
-gh skill list --agent claude-code --scope user
+claude plugin list
 ```
 
 ### Use
 
 Restart Claude Code. Claude can load STE-AI when a writing task matches its description.
 
-Invoke it directly:
+Invoke the plugin skill directly:
 
 ```text
-/ste-ai
+/ste-ai:ste-ai
 ```
 
 ### Update
 
 ```bash
-gh skill update ste-ai
+claude plugin marketplace update ste-ai
+claude plugin update ste-ai@ste-ai
+```
+
+### Uninstall
+
+```bash
+claude plugin uninstall ste-ai@ste-ai
+claude plugin marketplace remove ste-ai
+```
+
+Install the plain Agent Skill instead of the plugin:
+
+```bash
+gh skill install SeanLikesData/ste-ai ste-ai --agent claude-code --scope user
 ```
 
 </details>

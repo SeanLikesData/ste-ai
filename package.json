@@ -21,6 +21,7 @@
     "ai-writing"
   ],
   "files": [
+    ".claude-plugin",
     "skills",
     "README.md",
     "INSTALL.md",

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "ste-ai",
+  "description": "Structured Technical English for direct, consistent, low-cognitive-load AI writing.",
+  "owner": {
+    "name": "SeanLikesData"
+  },
+  "plugins": [
+    {
+      "name": "ste-ai",
+      "description": "Clear writing rules for Claude Code replies, documents, plans, and agent instructions.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
