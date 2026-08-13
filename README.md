@@ -51,7 +51,35 @@ STE-AI stops AI from burying the answer. It gives agents specific rules for dire
 </tr>
 </table>
 
-STE-AI applies the same rules to reports, plans, summaries, and agent instructions such as `SKILL.md` and `AGENTS.md`.
+### Agent instructions
+
+<table>
+<tr>
+<th width="50%">Typical AI-authored <code>AGENTS.md</code></th>
+<th width="50%">With STE-AI</th>
+</tr>
+<tr>
+<td valign="top">
+
+> ## Testing
+>
+> When making changes, it is important to ensure that the implementation is robust and that existing functionality continues to work as expected. Where appropriate, you should run the relevant tests and consider adding new tests when the change introduces behavior that is not already covered. Avoid marking work as complete until you are reasonably confident that everything is functioning correctly.
+
+</td>
+<td valign="top">
+
+> ## Testing
+>
+> 1. Run the tests that cover each changed behavior.
+> 2. Add a test when no current test covers the new behavior.
+> 3. Do not mark the task complete while a related test fails.
+> 4. Report each failing test and its cause.
+
+</td>
+</tr>
+</table>
+
+The second version gives each agent the same completion criteria. It removes judgment calls such as “where appropriate” and “reasonably confident.”
 
 ## The rules
 
