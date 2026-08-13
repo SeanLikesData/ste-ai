@@ -1,45 +1,203 @@
-# Install STE-AI
+# How to install
 
 Review [`SKILL.md`](skills/ste-ai/SKILL.md) before installation. STE-AI contains no executable code, hooks, or network access.
 
-## GitHub CLI
+<details>
+<summary><strong>Claude Code</strong></summary>
 
-The GitHub CLI installs Agent Skills for many coding agents.
-
-Preview STE-AI:
-
-```bash
-gh skill preview SeanLikesData/ste-ai ste-ai
-```
-
-Use the command for your agent:
-
-| Agent | Install for all projects |
-| --- | --- |
-| Claude Code | `gh skill install SeanLikesData/ste-ai ste-ai --agent claude-code --scope user` |
-| Codex | `gh skill install SeanLikesData/ste-ai ste-ai --agent codex --scope user` |
-| Cursor | `gh skill install SeanLikesData/ste-ai ste-ai --agent cursor --scope user` |
-| Gemini CLI | `gh skill install SeanLikesData/ste-ai ste-ai --agent gemini-cli --scope user` |
-| GitHub Copilot | `gh skill install SeanLikesData/ste-ai ste-ai --agent github-copilot --scope user` |
-| Pi | `gh skill install SeanLikesData/ste-ai ste-ai --agent pi --scope user` |
-
-Replace `--scope user` with `--scope project` for the current project only.
-
-List installed skills:
+### Install
 
 ```bash
-gh skill list
+gh skill install SeanLikesData/ste-ai ste-ai --agent claude-code --scope user
 ```
 
-Update STE-AI:
+### Verify
+
+```bash
+gh skill list --agent claude-code --scope user
+```
+
+### Use
+
+Restart Claude Code. Claude can load STE-AI when a writing task matches its description.
+
+Invoke it directly:
+
+```text
+/ste-ai
+```
+
+### Update
 
 ```bash
 gh skill update ste-ai
 ```
 
-## Cross-agent installer
+</details>
+
+<details>
+<summary><strong>Codex</strong></summary>
+
+### Install
+
+```bash
+gh skill install SeanLikesData/ste-ai ste-ai --agent codex --scope user
+```
+
+### Verify
+
+```bash
+gh skill list --agent codex --scope user
+```
+
+### Use
+
+Restart Codex if the skill does not appear automatically.
+
+Select it directly:
+
+```text
+$ste-ai
+```
+
+### Update
+
+```bash
+gh skill update ste-ai
+```
+
+</details>
+
+<details>
+<summary><strong>Cursor</strong></summary>
+
+### Install
+
+```bash
+gh skill install SeanLikesData/ste-ai ste-ai --agent cursor --scope user
+```
+
+Cursor also supports installation through **Customize → Rules → Add Rule → Remote Rule (GitHub)**.
+
+### Verify
+
+Restart Cursor. Open **Customize**, then **Skills**, and confirm that STE-AI appears.
+
+### Use
+
+```text
+/ste-ai
+```
+
+### Update
+
+```bash
+gh skill update ste-ai
+```
+
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong></summary>
+
+### Install
+
+```bash
+gh skill install SeanLikesData/ste-ai ste-ai --agent gemini-cli --scope user
+```
+
+Gemini CLI also supports direct Git installation:
+
+```bash
+gemini skills install https://github.com/SeanLikesData/ste-ai.git --path skills/ste-ai --consent
+```
+
+### Verify
+
+```bash
+gemini skills list --all
+```
+
+### Update
+
+For a GitHub CLI installation:
+
+```bash
+gh skill update ste-ai
+```
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot</strong></summary>
+
+### Install
+
+```bash
+gh skill install SeanLikesData/ste-ai ste-ai --agent github-copilot --scope user
+```
+
+### Verify
+
+Restart the agent session. Use `/skills` and confirm that STE-AI appears.
+
+### Update
+
+```bash
+gh skill update ste-ai
+```
+
+</details>
+
+<details>
+<summary><strong>Pi</strong></summary>
+
+Pi discovers this repository as a native package.
+
+### Install
+
+```bash
+pi install https://github.com/SeanLikesData/ste-ai
+```
+
+### Verify
+
+```bash
+pi list
+```
+
+Start a new Pi session. Invoke STE-AI directly:
+
+```text
+/skill:ste-ai
+```
+
+### Update
+
+```bash
+pi update https://github.com/SeanLikesData/ste-ai
+```
+
+### Uninstall
+
+```bash
+pi remove https://github.com/SeanLikesData/ste-ai
+```
+
+The npm command will become available after the first npm release:
+
+```bash
+pi install npm:ste-ai
+```
+
+</details>
+
+<details>
+<summary><strong>Other Agent Skills clients</strong></summary>
 
 The open [`skills` CLI](https://github.com/vercel-labs/skills) supports many additional agents.
+
+### Install
 
 ```bash
 npx skills@latest add SeanLikesData/ste-ai --skill ste-ai
@@ -53,123 +211,30 @@ Install STE-AI globally for one agent:
 npx skills@latest add SeanLikesData/ste-ai --skill ste-ai --agent claude-code --global
 ```
 
-Replace `claude-code` with the applicable agent value. Examples include `codex`, `cursor`, `gemini-cli`, `github-copilot`, and `pi`.
+Replace `claude-code` with the applicable agent value.
 
-Update or remove STE-AI:
+### Verify
+
+```bash
+npx skills@latest list --global
+```
+
+### Update
 
 ```bash
 npx skills@latest update ste-ai
-npx skills@latest remove ste-ai
 ```
 
-## Pi
-
-Install the GitHub repository as a native Pi package:
+### Uninstall
 
 ```bash
-pi install https://github.com/SeanLikesData/ste-ai
+npx skills@latest remove --global ste-ai
 ```
 
-Start a new Pi session. Invoke STE-AI directly when needed:
+</details>
 
-```text
-/skill:ste-ai
-```
-
-Update or remove the package:
-
-```bash
-pi update https://github.com/SeanLikesData/ste-ai
-pi remove https://github.com/SeanLikesData/ste-ai
-```
-
-The npm command will become available after the first npm release:
-
-```bash
-pi install npm:ste-ai
-```
-
-## Claude Code
-
-Install with the GitHub CLI:
-
-```bash
-gh skill install SeanLikesData/ste-ai ste-ai --agent claude-code --scope user
-```
-
-Restart Claude Code. Claude can load STE-AI when a writing task matches its description.
-
-Invoke it directly:
-
-```text
-/ste-ai
-```
-
-## Codex
-
-Install with the GitHub CLI:
-
-```bash
-gh skill install SeanLikesData/ste-ai ste-ai --agent codex --scope user
-```
-
-Restart Codex if the skill does not appear automatically.
-
-Select it directly:
-
-```text
-$ste-ai
-```
-
-## Cursor
-
-Install with the GitHub CLI:
-
-```bash
-gh skill install SeanLikesData/ste-ai ste-ai --agent cursor --scope user
-```
-
-Restart Cursor. Open **Customize**, then **Skills**, to confirm that STE-AI appears.
-
-Invoke it directly:
-
-```text
-/ste-ai
-```
-
-Cursor also supports installation from GitHub through **Customize → Rules → Add Rule → Remote Rule (GitHub)**.
-
-## Gemini CLI
-
-Install with the GitHub CLI:
-
-```bash
-gh skill install SeanLikesData/ste-ai ste-ai --agent gemini-cli --scope user
-```
-
-Gemini CLI also supports direct Git installation:
-
-```bash
-gemini skills install https://github.com/SeanLikesData/ste-ai.git --path skills/ste-ai --consent
-```
-
-List installed skills:
-
-```bash
-gemini skills list --all
-```
-
-## GitHub Copilot
-
-Install with the GitHub CLI:
-
-```bash
-gh skill install SeanLikesData/ste-ai ste-ai --agent github-copilot --scope user
-```
-
-Restart the agent session. Use `/skills` to confirm that STE-AI appears.
-
-## Manual installation
+<details>
+<summary><strong>Manual installation</strong></summary>
 
 Copy [`skills/ste-ai`](skills/ste-ai) into the user skill directory for your agent.
 
@@ -182,4 +247,16 @@ Copy [`skills/ste-ai`](skills/ste-ai) into the user skill directory for your age
 | GitHub Copilot | `~/.copilot/skills/ste-ai/` |
 | Pi | `~/.pi/agent/skills/ste-ai/` |
 
-Restart the agent after a manual installation.
+Restart the agent after installation.
+
+</details>
+
+## Preview before installation
+
+Use the GitHub CLI to inspect the skill:
+
+```bash
+gh skill preview SeanLikesData/ste-ai ste-ai
+```
+
+Use `--scope project` instead of `--scope user` in GitHub CLI commands for the current project only.

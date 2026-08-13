@@ -14,7 +14,7 @@ STE-AI gives AI agents one reusable writing standard. It keeps answers direct, p
 
 ## Install
 
-[Installation instructions for Pi, Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, and other Agent Skills clients](INSTALL.md)
+🔗 [Installation Instructions](INSTALL.md)
 
 ## See the difference
 
