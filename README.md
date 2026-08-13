@@ -27,9 +27,9 @@ STE-AI stops AI from burying the answer. It gives agents specific rules for dire
 <tr>
 <td valign="top">
 
-> Great question. At its core, this is not just a deployment decision. It is a balance between speed, confidence, and operational readiness. The good news is that 214 tests passed and staging checkout works, which suggests the update is in relatively strong shape.
+> Great question. At its core, this is not just a deployment decision. The payment-retry path is load-bearing, so a failure there could increase the blast radius. The good news is that 214 tests passed and staging checkout works, which suggests the update is in relatively strong shape.
 >
-> That said, the failed payment-retry test is worth keeping in mind. It may also be helpful to validate the rollback process before moving forward. Ultimately, taking a thoughtful, measured approach here will help ensure a robust and seamless deployment while minimizing unnecessary risk.
+> That said, the failed test may be the smoking gun. An untested rollback is also a potential footgun. A belt-and-suspenders approach would add an Initial Verification gate, or IV, before deployment. Ultimately, this will create a robust and seamless release process without unnecessary yak shaving.
 
 </td>
 <td valign="top">
@@ -63,7 +63,7 @@ STE-AI stops AI from burying the answer. It gives agents specific rules for dire
 
 > ## Testing
 >
-> When making changes, it is important to ensure that the implementation is robust and that existing functionality continues to work as expected. Where appropriate, you should run the relevant tests and consider adding new tests when the change introduces behavior that is not already covered. Avoid marking work as complete until you are reasonably confident that everything is functioning correctly.
+> Testing is the load-bearing gate in the delivery spine. When making changes, run the relevant tests to reduce the blast radius and avoid hidden footguns at integration seams. Where appropriate, add belt-and-suspenders coverage for behavior that crosses the validation substrate. Record Initial Verification as IV so agents can track it consistently. Avoid unnecessary yak shaving, but do not mark work complete until you are reasonably confident that everything functions correctly.
 
 </td>
 <td valign="top">
