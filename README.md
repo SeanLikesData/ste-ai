@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="logo.png" alt="STE-AI owl logo" width="180">
+<img src="ste-ai-logo.png" alt="STE-AI owl logo" width="180">
 
 # Structured Technical English for AI
 
