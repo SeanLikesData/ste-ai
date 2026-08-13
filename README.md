@@ -1,22 +1,25 @@
 <div align="center">
 
+<img src="logo.png" alt="STE-AI owl logo" width="180">
+
 # Structured Technical English for AI
 
 **Clear, consistent, low-cognitive-load writing for AI conversations and documents.**
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-111827)](https://agentskills.io)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![No executable code](https://img.shields.io/badge/executable%20code-none-16a34a)](skills/ste-ai/SKILL.md)
 
 </div>
 
-STE-AI gives AI agents one reusable writing standard. It keeps answers direct, preserves decision-critical detail, and makes long-lived instruction files easier to maintain.
+STE-AI stops AI from burying the answer. It gives agents specific rules for direct replies and maintainable documents.
 
 ## Install
 
 🔗 [Installation Instructions](INSTALL.md)
 
 ## See the difference
+
+**Prompt:** “Can we deploy the checkout update today? The test run passed 214 tests and failed the payment-retry test. Staging checkout works. We have not tested rollback.”
 
 <table>
 <tr>
@@ -26,16 +29,18 @@ STE-AI gives AI agents one reusable writing standard. It keeps answers direct, p
 <tr>
 <td valign="top">
 
-> Great question. There are several factors that could potentially influence this decision. It is worth noting that the current migration plan appears to have some gaps. You may want to consider creating a rollback procedure before moving forward. This would help ensure a more robust and seamless migration process.
+> Based on the information provided, the checkout update appears to be in relatively good shape overall, with the vast majority of tests passing and staging functionality looking positive. However, there are a couple of considerations worth keeping in mind before proceeding. The payment-retry test failure may warrant further investigation, and it could also be beneficial to validate the rollback process. Taking these precautions could help ensure a smoother and more reliable deployment.
 
 </td>
 <td valign="top">
 
-> Delay the migration until the rollback procedure is tested.
+> Do not deploy today.
 >
-> The current plan has no verified recovery path. A failed migration could extend the outage.
+> The failed test leaves payment retries unverified. Untested rollback leaves no verified recovery path.
 >
-> Next: test the rollback procedure in staging.
+> Verified: 214 tests passed, and staging checkout works.
+>
+> Next: fix the failed test, then test rollback in staging.
 
 </td>
 </tr>
@@ -43,50 +48,45 @@ STE-AI gives AI agents one reusable writing standard. It keeps answers direct, p
 
 STE-AI applies the same rules to reports, plans, summaries, and agent instructions such as `SKILL.md` and `AGENTS.md`.
 
-## What it changes
+## The rules
 
-- Leads with the answer, result, recommendation, or next action.
-- Uses short sentences, active voice, and common words.
-- Preserves risks, caveats, evidence, and decision-critical alternatives.
-- Separates verified facts from inference.
-- Removes filler, decorative language, and unnecessary recaps.
+### Response rules
+
+1. Lead with the answer, result, recommendation, or next action.
+2. Keep lists to five items. Rank or split longer lists.
+3. Give no more than two reasons for a recommendation unless the user asks for more.
+4. Preserve every risk, caveat, and alternative that can change the decision.
+5. Mark uncertainty with one term: `likely`, `unverified`, `unknown`, or `assumed`.
+
+### Language rules
+
+1. Keep sentences to 20 words or fewer. Put one idea in each sentence.
+2. Use active voice and the present tense. Use imperative verbs for instructions.
+3. Use one stable term for each concept. Define technical terms when they first appear.
+4. Use known numbers instead of vague quantities such as “some” or “several.”
+5. Remove filler, decorative claims, repeated recaps, and closing invitations.
 
 The complete specification is in [`SKILL.md`](skills/ste-ai/SKILL.md).
 
-## Why structured AI writing matters
+## Why this matters
 
-AI-authored instructions can remain active for months or years. Their wording affects every person and agent that reads them.
+AI instructions can remain active for years. Stable terms and explicit rules make `SKILL.md`, `AGENTS.md`, and other documents easier to review and maintain.
 
-Stable terms make those instructions easier to review, compare, revise, and transfer between agents. Explicit scope and sentence rules reduce interpretation differences during maintenance.
-
-STE-AI contains one Markdown skill file. It has no scripts, hooks, network access, or runtime dependencies.
-
-## Inspiration from ASD-STE100
-
-ASD-STE100 Simplified Technical English is a controlled natural language and international standard for technical documentation.
-
-The European aerospace industry began developing it in the late 1970s. The original goal was clearer English-language maintenance documentation. Its use expanded from commercial aviation into defense projects and other technical fields.
-
-ASD-STE100 combines writing rules with a controlled dictionary. These controls reduce ambiguity across languages and organizations.
-
-STE-AI applies the general principle of shared writing constraints to AI communication. It does not reproduce the ASD-STE100 controlled dictionary.
-
-STE-AI is independent. It is not ASD-STE100, an ASD-STE100 implementation, or a conformance checker. It is not affiliated with ASD or its STE Maintenance Group.
-
-Official references:
-
-- [ASD-STE100 overview](https://www.asd-ste100.org/about_STE.html)
-- [ASD Simplified Technical English](https://www.asd-europe.org/standards-specifications/simplified-technical-english/)
-- [STE fundamentals](https://www.asd-europe.org/standards-specifications/simplified-technical-english/what-are-the-basics-of-simplified-technical-english/)
-
-Simplified Technical English and ASD-STE100 are trademarks of ASD, Brussels, Belgium.
+STE-AI contains one Markdown file. It has no scripts, hooks, network access, or runtime dependencies.
 
 ## Inspiration
 
-STE-AI draws from two sources:
+### ASD-STE100
 
-- [ASD-STE100 Simplified Technical English](https://www.asd-ste100.org/) showed how shared writing constraints improve technical communication.
-- The [I Have ADHD](https://github.com/ayghri/i-have-adhd) skill demonstrated effective low-cognitive-load rules and cross-agent skill distribution.
+[ASD-STE100 Simplified Technical English](https://www.asd-ste100.org/) is an international standard for controlled technical writing. Aerospace teams developed it to make maintenance documents easier to understand across languages and organizations.
+
+STE-AI adapts the principle of shared writing constraints for AI communication. It does not reproduce the ASD-STE100 dictionary or claim ASD-STE100 compliance.
+
+STE-AI is independent and is not affiliated with ASD or its STE Maintenance Group. Simplified Technical English and ASD-STE100 are trademarks of ASD, Brussels, Belgium.
+
+### I Have ADHD
+
+The [I Have ADHD](https://github.com/ayghri/i-have-adhd) skill influenced STE-AI’s low-cognitive-load rules and cross-agent distribution format.
 
 ## License
 
