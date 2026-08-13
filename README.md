@@ -72,8 +72,6 @@ The complete specification is in [`SKILL.md`](skills/ste-ai/SKILL.md).
 
 AI instructions can remain active for years. Stable terms and explicit rules make `SKILL.md`, `AGENTS.md`, and other documents easier to review and maintain.
 
-STE-AI contains one Markdown file. It has no scripts, hooks, network access, or runtime dependencies.
-
 ## Inspiration
 
 ### ASD-STE100
